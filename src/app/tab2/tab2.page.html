@@ -6,8 +6,11 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" class="ion-padding">
   <div class="center">
-    <ion-button shape="round">Start Quiz</ion-button>
+    <ion-button shape="round" (click)="loadQuiz()">Start Quiz</ion-button>
+    <ion-text>
+      <p>{{getQuiz()?.question}}</p>
+    </ion-text>
   </div>
 </ion-content>
