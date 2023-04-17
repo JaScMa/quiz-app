@@ -1,8 +1,8 @@
 import { Component, importProvidersFrom } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 import { ExploreContainerComponent } from '../explore-container/explore-container.component';
-import { ApiService } from '../quiz-api/api.service';
 import { QuizApiModule } from '../quiz-api/quiz-api.module';
+import { QuizStorageService } from '../quiz-api/quiz-storage.service';
 
 
 @Component({
@@ -15,9 +15,13 @@ import { QuizApiModule } from '../quiz-api/quiz-api.module';
 export class Tab2Page {
 
   constructor(
-    private apiService: ApiService,
-  ) {
-    this.apiService.getRandomQuiz();
-  }
+    private quizStorage: QuizStorageService,
+  ) {}
 
+  loadQuiz() {
+    this.quizStorage.loadQuiz$.next();
+  }
+  getQuiz() {
+    return this.quizStorage.getQuiz(0);
+  }
 }

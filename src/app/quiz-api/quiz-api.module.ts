@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ApiService } from './api.service';
+import { QuizApiService } from './quiz-api.service';
 import { HttpClientModule } from '@angular/common/http';
+import { QuizStorageService } from './quiz-storage.service';
 
 
 
@@ -13,7 +14,8 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
   ],
   providers: [
-    ApiService,
+    QuizApiService,
+    QuizStorageService,
   ]
 })
 export class QuizApiModule {

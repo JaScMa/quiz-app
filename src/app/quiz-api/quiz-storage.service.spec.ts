@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { QuizApiService } from './quiz-api.service';
+import { QuizStorageService } from './quiz-storage.service';
 
-describe('ApiService', () => {
-  let service: QuizApiService;
+describe('QuizStorageService', () => {
+  let service: QuizStorageService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(QuizApiService);
+    service = TestBed.inject(QuizStorageService);
   });
 
   it('should be created', () => {
