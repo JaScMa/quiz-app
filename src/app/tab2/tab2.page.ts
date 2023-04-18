@@ -3,6 +3,9 @@ import { IonicModule } from '@ionic/angular';
 import { ExploreContainerComponent } from '../explore-container/explore-container.component';
 import { QuizApiModule } from '../quiz-api/quiz-api.module';
 import { QuizStorageService } from '../quiz-api/quiz-storage.service';
+import { StartQuizComponent } from './start-quiz/start-quiz.component';
+import { QuizComponent } from './quiz/quiz.component';
+import { CommonModule } from '@angular/common';
 
 
 @Component({
@@ -10,7 +13,7 @@ import { QuizStorageService } from '../quiz-api/quiz-storage.service';
   templateUrl: 'tab2.page.html',
   styleUrls: ['tab2.page.scss'],
   standalone: true,
-  imports: [IonicModule, ExploreContainerComponent, QuizApiModule],
+  imports: [IonicModule, ExploreContainerComponent, StartQuizComponent, QuizComponent, CommonModule],
 })
 export class Tab2Page {
 
@@ -18,10 +21,7 @@ export class Tab2Page {
     private quizStorage: QuizStorageService,
   ) {}
 
-  loadQuiz() {
-    this.quizStorage.loadQuiz$.next();
-  }
-  getQuiz() {
-    return this.quizStorage.getQuiz(0);
+  getShowingQuiz() {
+    return this.quizStorage.getShowingQuiz();
   }
 }

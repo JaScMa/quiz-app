@@ -1,0 +1,4 @@
+<ion-text>
+  <p>{{getQuiz()?.question}}</p>
+</ion-text>
+<ion-button *ngFor="let answer of filterAnswers(getQuiz())">{{answer?.answer}}</ion-button>
