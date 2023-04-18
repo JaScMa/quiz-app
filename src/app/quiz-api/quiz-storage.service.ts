@@ -6,7 +6,7 @@ import { Quiz } from './quiz';
 @Injectable()
 export class QuizStorageService {
   loadQuiz$ = new Subject<void>();
-  quiz?: Quiz[];
+  quiz$ = new BehaviorSubject<Quiz[]>([]);
   loaded$ = new BehaviorSubject<boolean>(true);
   completed$ = new BehaviorSubject<boolean>(true);
 
@@ -18,14 +18,10 @@ export class QuizStorageService {
       switchMap(() =>
         this.quizApiService.getRandomQuiz().pipe(first())
     )).subscribe(quiz => {
-      this.quiz = quiz;
+      this.quiz$.next(quiz);
       this.loaded$.next(true);
       this.completed$.next(false);
     })
-  }
-
-  getQuiz(index: number) {
-    return this.quiz?.[index];
   }
 
   getShowingQuiz() {

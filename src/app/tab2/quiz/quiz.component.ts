@@ -15,16 +15,13 @@ import { QuizStorageService } from 'src/app/quiz-api/quiz-storage.service';
 })
 export class QuizComponent  implements OnInit {
   questNumber = 0;
-
+  quiz$ = this.quizStorage.quiz$;
   constructor(
     private quizStorage: QuizStorageService,
   ) { }
 
   ngOnInit() {}
 
-  getQuiz() {
-    return this.quizStorage.getQuiz(this.questNumber);
-  }
   filterAnswers(quiz: Quiz | undefined) {
     if(!quiz) return [];
     const answers = Object.keys(quiz.answers);
@@ -34,6 +31,9 @@ export class QuizComponent  implements OnInit {
       if (answerValue === null) return;
       return { answer: answerValue };
     }).filter(answer => !!answer);
+  }
+
+  checkAnswer(answer: string) {
   }
 
 }

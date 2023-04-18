@@ -1,7 +1,7 @@
 <div class="box">
 <ion-text>
-  <h2>{{getQuiz()?.question}}</h2>
+  <h2>{{((quiz$ | async) ?? [])[questNumber].question}}</h2>
 </ion-text>
-<ion-button class="ion-text-wrap" mode="ios" *ngFor="let answer of filterAnswers(getQuiz())">{{answer?.answer}}</ion-button>
+<ion-button  class="ion-text-wrap" mode="ios" *ngFor="let answer of filterAnswers(((quiz$ | async) ?? [])[questNumber])">{{answer?.answer}}</ion-button>
 </div>
 
