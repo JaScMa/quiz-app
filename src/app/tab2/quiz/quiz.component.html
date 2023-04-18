@@ -1,4 +1,7 @@
+<div class="box">
 <ion-text>
-  <p>{{getQuiz()?.question}}</p>
+  <h2>{{getQuiz()?.question}}</h2>
 </ion-text>
-<ion-button *ngFor="let answer of filterAnswers(getQuiz())">{{answer?.answer}}</ion-button>
+<ion-button class="ion-text-wrap" mode="ios" *ngFor="let answer of filterAnswers(getQuiz())">{{answer?.answer}}</ion-button>
+</div>
+

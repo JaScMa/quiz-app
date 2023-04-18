@@ -4,4 +4,20 @@
   align-items: center;
   justify-content: center;
   height: 100%;
+  .box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    max-width: 30rem;
+  }
+  h2 {
+    max-width: 25rem;
+    text-align: center;
+  }
+  ion-button{
+    width: 100%;
+  }
 }
